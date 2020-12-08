@@ -102,7 +102,6 @@
                         <div class="col-xs-12">
                             <div class="copyright__inner">
                                 <p>Copyright©  <?php echo date('Y')?> Mohammad Tanvir Ahmed. All right reserved.</p>
-                                <a href="#"><img src="images/others/shape/paypol.png" alt="payment images"></a>
                             </div>
                         </div>
                     </div>
