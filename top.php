@@ -3,7 +3,8 @@ require('connection.inc.php');
 require('functions.inc.php');
 require('add_to_cart.inc.php');
 $wishlist_count=0;
-$cat_res=mysqli_query($con,"select * from categories where status=1 order by categories asc");
+$cat_res=mysqli_query($con,"select * from categories where status=1 order by id asc");
+//$cat_res=mysqli_query($con,"select * from categories where status=1 order by categories desc");
 $cat_arr=array();
 while($row=mysqli_fetch_assoc($cat_res)){
 	$cat_arr[]=$row;	
@@ -46,10 +47,15 @@ if($mypage=='product.php'){
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?php echo $meta_title?></title>
+    <title>Shoppy</title><!-- echo $meta_title -->
     <meta name="description" content="<?php echo $meta_desc?>">
 	<meta name="keywords" content="<?php echo $meta_keyword?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">

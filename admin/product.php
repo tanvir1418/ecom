@@ -60,8 +60,8 @@ $res=mysqli_query($con,$sql);
 							   <td><?php echo $row['categories']?></td>
 							   <td><?php echo $row['name']?></td>
 							   <td><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"/></td>
-							   <td><?php echo $row['mrp']?></td>
-							   <td><?php echo $row['price']?></td>
+							   <td>Tk <?php echo $row['mrp']?></td>
+							   <td>Tk <?php echo $row['price']?></td>
 							   <td><?php echo $row['qty']?></td>
 							   <td>
 								<?php
@@ -73,7 +73,7 @@ $res=mysqli_query($con,$sql);
 								echo "<span class='badge badge-edit'><a href='manage_product.php?id=".$row['id']."'>Edit</a></span>&nbsp;";
 								
 								echo "<span class='badge badge-delete'><a href='?type=delete&id=".$row['id']."'>Delete</a></span>";
-								
+								++$i;
 								?>
 							   </td>
 							</tr>

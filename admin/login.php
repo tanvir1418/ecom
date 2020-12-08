@@ -27,6 +27,10 @@ if(isset($_POST['submit'])){
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Login Page</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+      <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+
       <link rel="stylesheet" href="assets/css/normalize.css">
       <link rel="stylesheet" href="assets/css/bootstrap.min.css">
       <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -41,7 +45,12 @@ if(isset($_POST['submit'])){
       <div class="sufee-login d-flex align-content-center flex-wrap">
          <div class="container">
             <div class="login-content">
-               <div class="login-form mt-150">
+               <div class="login-logo mt-150">
+                    <a href="#">
+                        <img class="align-content" src="images/logo.png" alt="">
+                    </a>
+                </div>
+               <div class="login-form">
                   <form method="post">
                      <div class="form-group">
                         <label>Username</label>

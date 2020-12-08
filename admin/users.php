@@ -49,6 +49,7 @@ $res=mysqli_query($con,$sql);
 							   <td>
 								<?php
 								echo "<span class='badge badge-delete'><a href='?type=delete&id=".$row['id']."'>Delete</a></span>";
+								++$i;
 								?>
 							   </td>
 							</tr>

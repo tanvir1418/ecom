@@ -50,15 +50,15 @@ if(isset($_POST['update_order_status'])){
 										<td class="product-name"><?php echo $row['name']?></td>
 										<td class="product-name"> <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"></td>
 										<td class="product-name"><?php echo $row['qty']?></td>
-										<td class="product-name"><?php echo $row['price']?></td>
-										<td class="product-name"><?php echo $row['qty']*$row['price']?></td>
+										<td class="product-name">Tk <?php echo $row['price']?></td>
+										<td class="product-name">Tk <?php echo $row['qty']*$row['price']?></td>
 										
 									</tr>
 									<?php } ?>
 									<tr>
 										<td colspan="3"></td>
 										<td class="product-name">Total Price</td>
-										<td class="product-name"><?php echo $total_price?></td>
+										<td class="product-name">Tk <?php echo $total_price?></td>
 										
 									</tr>
 								</tbody>

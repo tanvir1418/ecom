@@ -11,17 +11,17 @@
                             <div class="col-md-7 col-sm-7 col-xs-12 col-lg-6">
                                 <div class="slide">
                                     <div class="slider__inner">
-                                        <h2>collection 2018</h2>
-                                        <h1>NICE CHAIR</h1>
-                                        <div class="cr__btn">
+                                        <h2>20% Off</h2>
+                                        <h1>Winter Offer</h1>
+                                        <!-- <div class="cr__btn">
                                             <a href="cart.html">Shop Now</a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
                                 <div class="slide__thumb">
-                                    <img src="images/slider/fornt-img/1.png" alt="slider images">
+                                    <img src="images/slider/fornt-img/1.jpg" alt="slider images">
                                 </div>
                             </div>
                         </div>
@@ -35,17 +35,89 @@
                             <div class="col-md-7 col-sm-7 col-xs-12 col-lg-6">
                                 <div class="slide">
                                     <div class="slider__inner">
-                                        <h2>collection 2018</h2>
-                                        <h1>NICE CHAIR</h1>
-                                        <div class="cr__btn">
+                                        <h2>Winter Arrival</h2>
+                                        <h1>Women's Fashion</h1>
+                                        <!-- <div class="cr__btn">
                                             <a href="cart.html">Shop Now</a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
                                 <div class="slide__thumb">
-                                    <img src="images/slider/fornt-img/2.png" alt="slider images">
+                                    <img src="images/slider/fornt-img/2.jpg" alt="slider images">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Slide -->
+                <!-- Start Single Slide -->
+                <div class="single__slide animation__style01 slider__fixed--height">
+                    <div class="container">
+                        <div class="row align-items__center">
+                            <div class="col-md-7 col-sm-7 col-xs-12 col-lg-6">
+                                <div class="slide">
+                                    <div class="slider__inner">
+                                        <h2>collection 2022</h2>
+                                        <h1>Men's Fashion</h1>
+                                        <!-- <div class="cr__btn">
+                                            <a href="cart.html">Shop Now</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
+                                <div class="slide__thumb">
+                                    <img src="images/slider/fornt-img/3.jpg" alt="slider images">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Slide -->
+                <!-- Start Single Slide -->
+                <div class="single__slide animation__style01 slider__fixed--height">
+                    <div class="container">
+                        <div class="row align-items__center">
+                            <div class="col-md-7 col-sm-7 col-xs-12 col-lg-6">
+                                <div class="slide">
+                                    <div class="slider__inner">
+                                        <h2>New collection</h2>
+                                        <h1>Kids Wear</h1>
+                                        <!-- <div class="cr__btn">
+                                            <a href="cart.html">Shop Now</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
+                                <div class="slide__thumb">
+                                    <img src="images/slider/fornt-img/4.jpg" alt="slider images">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Slide -->
+                <!-- Start Single Slide -->
+                <div class="single__slide animation__style01 slider__fixed--height">
+                    <div class="container">
+                        <div class="row align-items__center">
+                            <div class="col-md-7 col-sm-7 col-xs-12 col-lg-6">
+                                <div class="slide">
+                                    <div class="slider__inner">
+                                        <h2>Best Performance</h2>
+                                        <h1>Latest Phones</h1>
+                                        <!-- <div class="cr__btn">
+                                            <a href="cart.html">Shop Now</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
+                                <div class="slide__thumb">
+                                    <img src="images/slider/fornt-img/5.jpg" alt="slider images">
                                 </div>
                             </div>
                         </div>
@@ -89,8 +161,8 @@
                                     <div class="fr__product__inner">
                                         <h4><a href="product.php?id=<?php echo $list['id']?>"><?php echo $list['name']?></a></h4>
                                         <ul class="fr__pro__prize">
-                                            <li class="old__prize"><?php echo $list['mrp']?></li>
-                                            <li><?php echo $list['price']?></li>
+                                            <li class="old__prize"><strike>Tk <?php echo $list['mrp']?></strike></li>
+                                            <li>Tk <?php echo $list['price']?></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -136,8 +208,8 @@
                                     <div class="fr__product__inner">
                                         <h4><a href="product.php?id=<?php echo $list['id']?>"><?php echo $list['name']?></a></h4>
                                         <ul class="fr__pro__prize">
-                                            <li class="old__prize"><?php echo $list['mrp']?></li>
-                                            <li><?php echo $list['price']?></li>
+                                            <li class="old__prize"><strike>Tk <?php echo $list['mrp']?></strike></li>
+                                            <li>Tk <?php echo $list['price']?></li>
                                         </ul>
                                     </div>
                                 </div>

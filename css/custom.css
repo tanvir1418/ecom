@@ -15,3 +15,29 @@
     font-family: "Poppins";
     cursor: pointer;
 }
+
+.cod{
+    font-size: 20px;
+    margin-left: 10px;
+}
+.single-method input{
+    margin-left: 30px;
+}
+.check-submit{
+    background: #c43b68 none repeat scroll 0 0;
+    color: #fff;
+    display: inline-block;
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 400;
+    height: 50px;
+    line-height: 49px;
+    padding: 0 36px;
+    text-transform: capitalize;
+    transition: all 0.3s ease 0s;
+    border: none;
+}
+.check-submit:hover{
+    background: #313131 none repeat scroll 0 0;
+    color: #fff;
+}

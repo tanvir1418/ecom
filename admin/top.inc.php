@@ -14,8 +14,12 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Dashboard Page</title>
+      <title>Admin | Shoppy</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="apple-touch-icon" href="images/favicon.png">
+      <link rel="shortcut icon" href="images/favicon.png">
+
       <link rel="stylesheet" href="assets/css/normalize.css">
       <link rel="stylesheet" href="assets/css/bootstrap.min.css">
       <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -31,12 +35,12 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
          <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                <ul class="nav navbar-nav">
-                  <li class="menu-title">Menu</li>
+                  <li class="menu-title">Dashboard</li>
                   <li class="menu-item-has-children dropdown">
-                     <a href="categories.php" > Categories Master</a>
+                     <a href="categories.php" >Categories Master</a>
                   </li>
                   <li class="menu-item-has-children dropdown">
-                     <a href="product.php" > Product Master</a>
+                     <a href="product.php" >  Product Master</a>
                   </li>
 				  <li class="menu-item-has-children dropdown">
                      <a href="order_master.php" > Order Master</a>
@@ -56,9 +60,9 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
          <header id="header" class="header">
             <div class="top-left">
                <div class="navbar-header">
-                  <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="Logo"></a>
-                  <a class="navbar-brand hidden" href="index.php"><img src="images/logo2.png" alt="Logo"></a>
-                  <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                  <a class="navbar-brand" href="index.php"><img src="images/logo-white.png" alt="Logo"></a>
+                  <a class="navbar-brand hidden" href="index.php"><img src="images/logo-white.png" alt="Logo"></a>
+                  <!-- <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a> -->
                </div>
             </div>
             <div class="top-right">

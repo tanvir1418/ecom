@@ -244,15 +244,15 @@ if(isset($_POST['submit'])){
 										<div class="accordion__body">
 											<div class="paymentinfo">
 												<div class="single-method">
-													COD <input type="radio" name="payment_type" value="COD" required/>
-													&nbsp;&nbsp;PayU <input type="radio" name="payment_type" value="payu" required/>
+												<input type="radio" name="payment_type" value="COD" required/><span class="cod">Cash On Delivery</span>
+													<!-- &nbsp;&nbsp;PayU <input type="radio" name="payment_type" value="payu" required/> -->
 												</div>
 												<div class="single-method">
 												  
 												</div>
 											</div>
 										</div>
-										 <input type="submit" name="submit"/>
+										 <input class="check-submit" type="submit" name="submit"/>
 									</form>
                                 </div>
                             </div>
@@ -279,7 +279,7 @@ if(isset($_POST['submit'])){
                                     </div>
                                     <div class="single-item__content">
                                         <a href="#"><?php echo $pname?></a>
-                                        <span class="price"><?php echo $price*$qty?></span>
+                                        <span class="price">Tk <?php echo $price*$qty?></span>
                                     </div>
                                     <div class="single-item__remove">
                                         <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key?>','remove')"><i class="icon-trash icons"></i></a>
@@ -289,7 +289,7 @@ if(isset($_POST['submit'])){
                             </div>
                             <div class="ordre-details__total">
                                 <h5>Order total</h5>
-                                <span class="price"><?php echo $cart_total?></span>
+                                <span class="price">Tk <?php echo $cart_total?></span>
                             </div>
                         </div>
                     </div>
