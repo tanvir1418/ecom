@@ -18,6 +18,7 @@ if(isset($_GET['id'])){
 	</script>
 	<?php
 }
+
 ?>
 
  <!-- Start Bradcaump area -->
@@ -66,28 +67,38 @@ if(isset($_GET['id'])){
                                 <h2><?php echo $get_product['0']['name']?></h2>
                                 <ul  class="pro__prize">
                                     <li class="old__prize"><strike>Tk <?php echo $get_product['0']['mrp']?></strike></li>
-                                    <li><?php echo $get_product['0']['price']?></li>
+                                    <li>Tk <?php echo $get_product['0']['price']?></li>
                                 </ul>
                                 <p class="pro__info"><?php echo $get_product['0']['short_desc']?></p>
                                 <div class="ht__pro__desc">
+                                    <?php 
+                                        $productSoldQtyByProductId = productSoldQtyByProductId($con,$get_product['0']['id']);
+
+                                        $pending_qty = $get_product['0']['qty'] - $productSoldQtyByProductId;
+
+                                        $cart_show = 'yes';
+                                        if($get_product['0']['qty']>$productSoldQtyByProductId){
+                                            $stock = 'In Stock';
+                                        } else {
+                                            $stock = 'Not in Stock';
+                                            $cart_show = '';
+                                        }
+                                    ?>
                                     <div class="sin__desc">
-                                        <p><span>Availability:</span> In Stock</p>
+                                        <p><span>Availability:</span> <?php echo $stock?></p>
                                     </div>
 									<div class="sin__desc">
+                                    <?php if($cart_show != '') { ?>
                                         <p><span>Qty:</span> 
 										<select id="qty">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-											<option>6</option>
-											<option>7</option>
-											<option>8</option>
-											<option>9</option>
-											<option>10</option>
+                                            <?php 
+                                                for($i=1; $i<=$pending_qty; $i++){
+                                                    echo "<option>$i</option>";
+                                                }
+                                            ?>
 										</select>
 										</p>
+                                        <?php } ?>
                                     </div>
                                     <div class="sin__desc align--left">
                                         <p><span>Categories:</span></p>
@@ -99,7 +110,9 @@ if(isset($_GET['id'])){
                                     </div>
 									
                                 </div>
+                                <?php if($cart_show != '') { ?>
 								<a class="fr__btn" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id']?>','add')">Add to cart</a>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
