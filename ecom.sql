@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2020 at 11:01 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.0.25
+-- Generation Time: Dec 10, 2020 at 03:07 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -60,7 +59,8 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`id`, `categories`, `status`) VALUES
 (1, 'Mobile', 1),
 (2, 'Man', 1),
-(4, 'Woman', 1);
+(4, 'Woman', 1),
+(5, 'Kids', 1);
 
 -- --------------------------------------------------------
 
@@ -82,10 +82,9 @@ CREATE TABLE `contact_us` (
 --
 
 INSERT INTO `contact_us` (`id`, `name`, `email`, `mobile`, `comment`, `added_on`) VALUES
-(1, 'Vishal', 'vishal@gmail.com', '1234567890', 'Test Query', '2020-01-14 00:00:00'),
-(2, 'vishal@gmail.com', '', '1234567890', 'testing', '2020-01-19 07:59:38'),
-(3, 'Vishal', 'vishal@gmail.com', '1234567890', 'testing', '2020-01-19 08:00:09'),
-(4, 'test', 'test@gmail.com', '9990413778', 'test', '2020-05-01 09:21:37');
+(5, 'Muntasir Ahmed', 'muntasir2179@gmail.com', '01622792511', 'A quick and simplified answer is that Lorem Ipsum refers to text that the DTP (Desktop Publishing) industry use as replacement text when the real text is not available. ... Lorem Ipsum is dummy text which has no meaning however looks very similar to real text.', '2020-12-09 05:59:27'),
+(6, 'Anisur Rahman', 'anisur@gmail.com', '01622792511', 'A quick and simplified answer is that Lorem Ipsum refers to text that the DTP (Desktop Publishing) industry use as replacement text when the real text is not available. ... Lorem Ipsum is dummy text which has no meaning however looks very similar to real text.', '2020-12-09 05:59:44'),
+(7, 'Johura Begum', 'johura@gmail.com', '01622792511', 'A quick and simplified answer is that Lorem Ipsum refers to text that the DTP (Desktop Publishing) industry use as replacement text when the real text is not available. ... Lorem Ipsum is dummy text which has no meaning however looks very similar to real text.', '2020-12-09 06:00:01');
 
 -- --------------------------------------------------------
 
@@ -109,6 +108,17 @@ CREATE TABLE `order` (
   `added_on` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`id`, `user_id`, `address`, `city`, `pincode`, `payment_type`, `total_price`, `payment_status`, `order_status`, `txnid`, `mihpayid`, `payu_status`, `added_on`) VALUES
+(1, 3, 'Latifpur Colony, Bogura', 'Bogura', 5800, 'COD', 283695, 'Success', 5, 'c6c2c2aadec28486e43b', '', '', '2020-12-08 06:05:35'),
+(2, 5, 'Latifpur Colony, Bogura', 'Bogura', 5800, 'COD', 29450, 'Success', 5, '4f1629a529912d72e82b', '', '', '2020-12-09 06:03:50'),
+(3, 6, 'Latifpur Colony, Bogura', 'Bogura', 5800, 'COD', 5350, 'pending', 2, '612ff6a452cb842d57b2', '', '', '2020-12-09 06:05:48'),
+(4, 9, 'Latifpur Colony, Bogura', 'Bogura', 5800, 'COD', 101500, 'pending', 4, 'd0c5359751e31fba6c4a', '', '', '2020-12-09 06:08:47'),
+(5, 3, 'Latifpur Colony, Bogura', 'Bogura', 5800, 'COD', 93000, 'pending', 1, 'a53ba7ec3e29f905f541', '', '', '2020-12-10 06:18:27');
+
 -- --------------------------------------------------------
 
 --
@@ -122,6 +132,25 @@ CREATE TABLE `order_detail` (
   `qty` int(11) NOT NULL,
   `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `qty`, `price`) VALUES
+(1, 1, 3, 1, 115900),
+(2, 1, 2, 1, 155800),
+(3, 1, 5, 5, 2399),
+(4, 2, 11, 1, 17500),
+(5, 2, 12, 1, 1750),
+(6, 2, 14, 1, 9000),
+(7, 2, 4, 1, 1200),
+(8, 3, 27, 1, 3700),
+(9, 3, 25, 1, 1650),
+(10, 4, 11, 1, 17500),
+(11, 4, 16, 1, 84000),
+(12, 5, 16, 1, 84000),
+(13, 5, 14, 1, 9000);
 
 -- --------------------------------------------------------
 
@@ -180,8 +209,27 @@ INSERT INTO `product` (`id`, `categories_id`, `name`, `mrp`, `price`, `qty`, `im
 (5, 2, 'NATURE-LINEN SHIRT-GREEN', 2799, 2399, 8, '812581380_nature_green-0224_600x.jpg', 'a nisl pharetra orci, at condimentum nisl lorem elementum ipsum.', 'Nunc auctor turpis ante, eget bibendum mi mollis in. Aliquam quis neque ut libero malesuada auctor. Aliquam interdum enim at commodo gravida. Donec nisl sem, molestie ut quam quis, vulputate venenatis ipsum. Aenean quis ex ut magna accumsan fringilla. Quisque id ex massa. Sed libero ante, fringilla ac condimentum in, porttitor ac risus. Integer mattis odio nec nunc semper imperdiet. In porttitor tellus eget sapien vulputate, eu euismod lacus aliquet. Maecenas molestie elit augue, sit amet fringilla dolor congue et. Nunc eu libero auctor, sollicitudin lectus quis, porta ligula. In vel ullamcorper risus. Nullam viverra, mi sit amet laoreet luctus, urna nisl pharetra orci, at condimentum nisl lorem elementum ipsum.', 0, 'NATURE-LINEN SHIRT-GREEN', 'NATURE-LINEN SHIRT-GREEN', 'T-Shirt, NATURE-LINEN SHIRT-GREEN', 1),
 (6, 2, 'Monte Carlo Turquoise Blue Solid Collar T Shirt', 1999, 1500, 8, '931830512__8-(1)-E5x-104831-NJD.jpg', 'lacus quis urna tristique suscipit. Praesent vitae mi mollis dui facilisis convallis eu faucibus augue.', 'Duis in risus quis lectus dictum fringilla. Aenean tempor pellentesque velit id ullamcorper. Ut id aliquam odio. Morbi id pharetra libero, ut tempor nisi. Maecenas a lectus nec risus maximus rutrum. Mauris vel elit ut magna semper laoreet nec sed magna. Quisque eleifend vel sem non malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum eget posuere orci, eu ultrices sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam sit amet ex dictum nisl bibendum elementum non in turpis. In bibendum ipsum nunc, bibendum lacinia lacus maximus eu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus aliquam lacus quis urna tristique suscipit. Praesent vitae mi mollis dui facilisis convallis eu faucibus augue.', 0, 'Monte Carlo Turquoise Blue Solid Collar T Shirt', 'Monte Carlo Turquoise Blue Solid Collar T Shirt', 'Monte Carlo Turquoise Blue Solid Collar T Shirt', 1),
 (7, 4, 'Floral Print Polo T-shirt', 1900, 1350, 7, '309027777_Floral-Print-Polo-T-shirt.jpg', 'isl pharetra orci, at condimentum nisl lorem elementum ipsum.', 'Nunc auctor turpis ante, eget bibendum mi mollis in. Aliquam quis neque ut libero malesuada auctor. Aliquam interdum enim at commodo gravida. Donec nisl sem, molestie ut quam quis, vulputate venenatis ipsum. Aenean quis ex ut magna accumsan fringilla. Quisque id ex massa. Sed libero ante, fringilla ac condimentum in, porttitor ac risus. Integer mattis odio nec nunc semper imperdiet. In porttitor tellus eget sapien vulputate, eu euismod lacus aliquet. Maecenas molestie elit augue, sit amet fringilla dolor congue et. Nunc eu libero auctor, sollicitudin lectus quis, porta ligula. In vel ullamcorper risus. Nullam viverra, mi sit amet laoreet luctus, urna nisl pharetra orci, at condimentum nisl lorem elementum ipsum.', 0, 'Floral Print Polo T-shirt', 'Floral Print Polo T-shirt', 'Floral Print Polo T-shirt', 1),
-(8, 4, 'Floral Embroidered Polo T-shirt', 1120, 1900, 10, '651584201_Floral-Embroidered-Polo-T-shirt.jpg', 'rius, lacus velit aliquam ex, in dignissim sem eros ac erat. Vestibulum ac arcu tortor.', 'Vestibulum in auctor turpis. Quisque hendrerit eget turpis et molestie. Phasellus nec nibh a lacus rhoncus eleifend. Donec suscipit id diam non mattis. Fusce eu luctus leo. Etiam eget dui libero. Etiam eros lorem, rhoncus et convallis eget, tempus vel tellus. Nam at diam quis nisl tincidunt aliquam. Quisque placerat magna non libero interdum varius vel id risus. Vivamus mollis maximus fermentum. Donec eget nulla dui. Sed ultricies malesuada metus, non feugiat purus fringilla ac. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer accumsan, tortor id eleifend varius, lacus velit aliquam ex, in dignissim sem eros ac erat. Vestibulum ac arcu tortor.', 1, 'Floral Embroidered Polo T-shirt', '', 'Floral Embroidered Polo T-shirt', 1),
-(9, 4, 'Floral Print Polo T-shirt Latest', 650, 1560, 10, '526258680_Floral-Print-Polo-T-shirt1.jpg', 's mus. Vestibulum eget posuere orci, eu ultrices sapien. Orc', 'aximus rutrum. Mauris vel elit ut magna semper laoreet nec sed magna. Quisque eleifend vel sem non malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum eget posuere orci, eu ultrices sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam sit amet ex d', 1, 'Floral Print Polo T-shirt Latest', '', 'Floral Print Polo T-shirt Latest', 1);
+(8, 4, 'Floral Embroidered Polo T-shirt', 2120, 1900, 10, '651584201_Floral-Embroidered-Polo-T-shirt.jpg', 'rius, lacus velit aliquam ex, in dignissim sem eros ac erat. Vestibulum ac arcu tortor.', 'Vestibulum in auctor turpis. Quisque hendrerit eget turpis et molestie. Phasellus nec nibh a lacus rhoncus eleifend. Donec suscipit id diam non mattis. Fusce eu luctus leo. Etiam eget dui libero. Etiam eros lorem, rhoncus et convallis eget, tempus vel tellus. Nam at diam quis nisl tincidunt aliquam. Quisque placerat magna non libero interdum varius vel id risus. Vivamus mollis maximus fermentum. Donec eget nulla dui. Sed ultricies malesuada metus, non feugiat purus fringilla ac. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer accumsan, tortor id eleifend varius, lacus velit aliquam ex, in dignissim sem eros ac erat. Vestibulum ac arcu tortor.', 1, 'Floral Embroidered Polo T-shirt', '', 'Floral Embroidered Polo T-shirt', 1),
+(9, 4, 'Floral Print Polo T-shirt Latest', 1650, 1560, 10, '526258680_Floral-Print-Polo-T-shirt1.jpg', 's mus. Vestibulum eget posuere orci, eu ultrices sapien. Orc', 'aximus rutrum. Mauris vel elit ut magna semper laoreet nec sed magna. Quisque eleifend vel sem non malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum eget posuere orci, eu ultrices sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam sit amet ex d', 1, 'Floral Print Polo T-shirt Latest', '', 'Floral Print Polo T-shirt Latest', 1),
+(10, 2, 'Jacket Columbia mens Ascender Softshell Front-zip', 6000, 5000, 40, '801964596_71gNdyqItmL._AC._SR360,460.jpg', '100% Polyester\r\nImported\r\nZipper closure\r\nMachine Wash', 'There\'s nothing more necessary than a wind and water resistant layer in a men\'s outdoor winter wardrobe—that\'s why the Ascender Softshell Jacket exists. Columbia\'s lightweight, winter-ready jacket is the ultimate warmth provider and an everyday style piece.', 1, '', '', '', 1),
+(11, 2, 'Jacket BIYLACLESEN Men\'s Winter Coats Windproof', 19000, 17500, 20, '370730492_51qVOLBYnrL._AC_UX679_.jpg', 'Material: 100% Polyester and Soft and Thick Fleece Lining.\r\nMulti Pockets: 2 Zippered Hand Pockets, 1 Zippered Pocket on Left Chest, 1 Internal Pocket On Left Chest. Zippered pockets keep your things secure all day.', 'Detachable Hood The Detachable Storm Hood with zipper is enough to keep your ears and head warm and comfortable. Water-resistant The surface is made of Water resistant material,it has Lotus leaf water repellent function. Even if it touches the water, it can bounce the water away quickly in light rain.', 1, '', '', '', 1),
+(12, 2, 'Pocket Pant Wrangler Authentics Men\'s Fleece Lined 5', 2000, 1750, 40, '578408529_91IT2l9WZDL._AC_UY550_.jpg', '100% Cotton\r\nImported\r\nZipper closure\r\nMachine Wash\r\nRELAXED FIT. Built with a relaxed fit through the seat and thigh, these versatile pants sit at the natural waist for a comfortable fit during any task.\r\nFUNCTIONAL DESIGN. Featuring classic Authentics styling and a relaxed fit, these pants provide the cold-weather comfort you are looking for.', 'The Wrangler Authentic Men\'s Big & Tall Fleece Lined 5 Pocket Pant is the perfect style for warmth and durability in the colder months. Made with a 100% cotton body and polyester lining, this pant features 5 pocket styling for everyday wear and versatility. Keep warm and stylish this fall and winter with the Wrangler Authentic Fleece Lined 5 Pocket pant.', 0, '', '', '', 1),
+(13, 2, 'Slim Fit Pant Haggar Men\'s Premium Comfort', 2800, 2300, 20, '948914389_61KqgyJBfxL._AC_UX569_.jpg', '58% Cotton, 40% Polyester, 2% Spandex\r\nImported\r\nButton closure\r\nMachine Wash\r\nSlim fit\r\nFlat front\r\nPremium flex waistband', 'Item model number : HC80453\r\nDepartment : Mens\r\nDate First Available : February 23, 2019\r\nManufacturer : Haggar\r\nASIN : B07GC8TCYB', 0, '', '', '', 1),
+(14, 2, 'COOFANDY Men Floral Blazer Suit Jacket', 12000, 9000, 10, '427137991_3623d5cd2d86184159631f0e0d55dcf9.jpg', 'Recommended Garment Care: dry clean only\r\nButton closure\r\nDo Not Bleach\r\nFloral Embroidered Material --- The men floral suit jacket is made of high quality jacquard fabric, finished by great stitching. Dry Clean Only(Recommended); Hand washes max temperature 40°C, Do not bleach, Iron max 110°C.', 'Recommended Garment Care: dry clean only\r\nButton closure\r\nDo Not Bleach\r\nFloral Embroidered Material --- The men floral suit jacket is made of high quality jacquard fabric, finished by great stitching. Dry Clean Only(Recommended); Hand washes max temperature 40°C, Do not bleach, Iron max 110°C.\r\nLuxury Design --- The men\'s party blazer is decorated with classic embroidered floral, made by excellent craftsmanship, one button closure, notch lapel, two fake flap pockets, adding the maximum charm in your big day.\r\nElegant Looking --- Designed with fashion and delicate embroidery, paisley pattern, great tailoring, this men\'s dinner tuxedo makes you look gentle, attractive and graceful in the crowd.\r\nNotice --- Please check the size information under the product description appropriatly before ordering. Please feel free to contact us if you have any problems with the men floral dinner blazer.\r\nRecommended Pairing --- Match a white dress shirt, a pair of leather shoes and your suit pant with the men prom blazer to maximum help improve your public image and leave an unforgettable impression.', 1, '', '', '', 1),
+(15, 1, 'Mi 10 (Twilight Grey, 8GB RAM, 256GB Storage)', 60000, 49000, 5, '733083025_download.jpg', 'Mi 10 comes with Octa-core Snapdragon 865 with 7nm process and upto 2.84GHz clock speed. It also comes with 108 MP Quad Rear camera setup with OIS + Ultra-wide and Macro mode along with 20 MP in-display front camera. Mi 10 also features 16.9 centimeters (6.67-inch) FHD + Full screen AMOLED display with 1080x2340 pixels and 19.5:9 aspect ratio along with 3D Curved glass. It also comes with 4780 mAH large battery with 30W wired fast charger in-box & support for up to 30W wireless charging.', 'Mi 10 comes with Octa-core Snapdragon 865 with 7nm process and upto 2.84GHz clock speed. It also comes with 108 MP Quad Rear camera setup with OIS + Ultra-wide and Macro mode along with 20 MP in-display front camera. Mi 10 also features 16.9 centimeters (6.67-inch) FHD + Full screen AMOLED display with 1080x2340 pixels and 19.5:9 aspect ratio along with 3D Curved glass. It also comes with 4780 mAH large battery with 30W wired fast charger in-box & support for up to 30W wireless charging.', 0, '', '', '', 1),
+(16, 1, 'Apple iPhone 12 (64GB) - Blue', 85000, 84000, 10, '820568148_71ZOtNdaZCL._AC_SX466_.jpg', '6.1-inch Super Retina XDR display\r\nCeramic Shield, tougher than any smartphone glass\r\nA14 Bionic chip, the fastest chip ever in a smartphone\r\nAdvanced dual-camera system with 12MP Ultra Wide and Wide cameras; Night mode, Deep Fusion, Smart HDR 3, 4K Dolby Vision HDR recording\r\n12MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR recording\r\nIndustry-leading IP68 water resistance\r\nSupports MagSafe accessories for easy attach and faster wireless charging\r\niOS with redesigned widgets on the Home screen, all-new App Library, App Clips and more', '6.1-inch Super Retina XDR display\r\nCeramic Shield, tougher than any smartphone glass\r\nA14 Bionic chip, the fastest chip ever in a smartphone\r\nAdvanced dual-camera system with 12MP Ultra Wide and Wide cameras; Night mode, Deep Fusion, Smart HDR 3, 4K Dolby Vision HDR recording\r\n12MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR recording\r\nIndustry-leading IP68 water resistance\r\nSupports MagSafe accessories for easy attach and faster wireless charging\r\niOS with redesigned widgets on the Home screen, all-new App Library, App Clips and more', 1, '', '', '', 1),
+(17, 1, 'OPPO F17 Pro (Matte Black, 8GB RAM, 128GB Storage)', 25000, 24499, 10, '670283763_untitled-design-1-132075_l.png', '48MP + 8MP + 2MP + 2MP Quad camera with photo, video, panorama, portrait, night scenes, time-lapse photography, beauty selfies, etc. | 16MP main + 2MP depth Front Camera\r\n16.34 centimeters (6.43 inch) dual punch-hole display with brilliant FHD+ view with 2400 x 1080 pixels resolution, 409 ppi pixel density and 16.7M color support | In-display fingerprint 3.0\r\nMemory, Storage & SIM: 8GB RAM | 128GB internal memory 3-card slot can be expandable up to 256GB | Dual SIM (nano+nano) dual-standby (4G+4G)\r\nAndroid v10 based ColorOS 7.2 operating system with 2.2GHz MediaTek Helio P95 octa core processor, IMG 9XM-HP8 GPU\r\n4015mAH lithium-polymer massive battery with 30W VOOC Flash Charge 4.0 | 5 min charge, 4 hours of talktime\r\n1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase\r\nBox also includes: Adapter, data cable, sim card ejector tool, earphones, quick start guide and warranty card', '48MP + 8MP + 2MP + 2MP Quad camera with photo, video, panorama, portrait, night scenes, time-lapse photography, beauty selfies, etc. | 16MP main + 2MP depth Front Camera\r\n16.34 centimeters (6.43 inch) dual punch-hole display with brilliant FHD+ view with 2400 x 1080 pixels resolution, 409 ppi pixel density and 16.7M color support | In-display fingerprint 3.0\r\nMemory, Storage & SIM: 8GB RAM | 128GB internal memory 3-card slot can be expandable up to 256GB | Dual SIM (nano+nano) dual-standby (4G+4G)\r\nAndroid v10 based ColorOS 7.2 operating system with 2.2GHz MediaTek Helio P95 octa core processor, IMG 9XM-HP8 GPU\r\n4015mAH lithium-polymer massive battery with 30W VOOC Flash Charge 4.0 | 5 min charge, 4 hours of talktime\r\n1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase\r\nBox also includes: Adapter, data cable, sim card ejector tool, earphones, quick start guide and warranty card', 0, '', '', '', 1),
+(18, 1, 'Nokia 105 Single SIM (Black)', 1500, 1350, 20, '570031121_download (1).jpg', '1.8-inch (4.57 cm) display\r\n14.4 hours talk time, 25.8 days standby time on a single charge\r\nWireless FM radio, 3.5 mm headphone jack\r\nStore up to 2,000 contacts and up to 500 messages\r\nOne-year manufacturer warranty for device. The box does not include earphones\r\nCustomer care number - 1800 1028 169\r\nCountry of Origin: India', '1.8-inch (4.57 cm) display\r\n14.4 hours talk time, 25.8 days standby time on a single charge\r\nWireless FM radio, 3.5 mm headphone jack\r\nStore up to 2,000 contacts and up to 500 messages\r\nOne-year manufacturer warranty for device. The box does not include earphones\r\nCustomer care number - 1800 1028 169\r\nCountry of Origin: India', 0, '', '', '', 1),
+(19, 1, 'Nokia 110 Dual SIM (Black', 2120, 1900, 10, '711384231_download (2).jpg', 'Dual SIM\r\n1.77-inch (4.49 cm) display\r\n14 hours\' talk time, 18.5 days standby time on a single charge\r\nRear camera, FM radio, music player\r\nExpandable storage up to 32GB. The box does not include earphones\r\nCustomer care number - 1800 1028 169\r\nCountry of Origin: India', 'Dual SIM\r\n1.77-inch (4.49 cm) display\r\n14 hours\' talk time, 18.5 days standby time on a single charge\r\nRear camera, FM radio, music player\r\nExpandable storage up to 32GB. The box does not include earphones\r\nCustomer care number - 1800 1028 169\r\nCountry of Origin: India', 0, '', '', '', 1),
+(20, 4, 'Calvin Klein Elaine Bubble Lamb Novelty Key Item Flap Backpack', 12000, 9050, 20, '296293016_aWPC8IEjmFRvL2FkHwNPUA.jpg', '100% Man Made Material\r\nImported\r\nHigh quality vegan leather\r\n1 exterior zip pocket, 3 interior zip pockets, & 1 Interior slip pocket\r\nFlap closure with organization', '100% Man Made Material\r\nImported\r\nHigh quality vegan leather\r\n1 exterior zip pocket, 3 interior zip pockets, & 1 Interior slip pocket\r\nFlap closure with organization', 1, '', '', '', 0),
+(21, 4, 'Calvin Klein Women\'s Hayden Key Item Signature Top Zip Chain Crossbody', 8000, 7500, 20, '155379206_41nLRzt-UwL.jpg', 'Key Item Monogram Logo Faux Leather Top Zip Crossbody with a Chain Crossbody Strap and Interior Organization', 'Key Item Monogram Logo Faux Leather Top Zip Crossbody with a Chain Crossbody Strap and Interior Organization', 0, '', '', '', 1),
+(22, 4, 'Saree - Banarasi Silk Saree and Party Wear', 4500, 4200, 30, '722961522_61rKptm-ZvL._AC_UY445_.jpg', 'Fabric : Banarasi Silk\r\nFabric : Banarasi Silk\r\nPoly Silk Jacquard Banarasi Saree\r\nSaree Length: 5.5mtr | Blouse Length: 0.8mtr\r\nAlso Provide the Stitching Service. First Send Order than Send your Measurement. You can Fit According Your measurement.\r\nOccasion: Casual, Party, Festival, Ceremony, Wedding', 'Fabric : Banarasi Silk\r\nFabric : Banarasi Silk\r\nPoly Silk Jacquard Banarasi Saree\r\nSaree Length: 5.5mtr | Blouse Length: 0.8mtr\r\nAlso Provide the Stitching Service. First Send Order than Send your Measurement. You can Fit According Your measurement.\r\nOccasion: Casual, Party, Festival, Ceremony, Wedding', 0, '', '', '', 0),
+(23, 4, 'Pakistani Shalwar Kameez Lahenga Suit Embroidery Stone Work', 8500, 6700, 30, '452109926_partywear-garara-suits-500x500.jpg', 'STYLE :- This Suit is Ready to wear. Just select your size & color order.\r\nSIZE CHART GUIDE :- The measurements in above Size Chart are considered as body measurements. The ready garment size will be 1-2 inches bigger than body measurements mentioned in the chart. The Ready Garment Size at Bust for all the above sizes in inches will be as following, (XS-36); (S-38); (M-40);( L-42);(XL-44);(XXL-46);(OX-48);(1X-50) unstitched;customize stitch\r\nTop:- Foux Georgatte With Embriodery Work + Stone Sleeves :- Foux Georgatte With Emb. Work + Stone Inner :- Santoon (Attched) Length :- Max Up to 46” Size :- Max Up to 60” Bottom :- Santoon Lehenga :- ButterFly Net With Emb. Work + Stone Inner Attched Santoon Length :- Max Up to 48” Size :- Max Up to 40\" Flair :- 2.10 Mtr Type :- Ready To Wear Dupatta :- ButterFly Net With Emb. Work + Stone Wash :- First Time Dry Clean\r\nSuit Length = 43-44 inches.... If you want the length shorter, then please inform us soon after you place an order.', 'STYLE :- This Suit is Ready to wear. Just select your size & color order.\r\nSIZE CHART GUIDE :- The measurements in above Size Chart are considered as body measurements. The ready garment size will be 1-2 inches bigger than body measurements mentioned in the chart. The Ready Garment Size at Bust for all the above sizes in inches will be as following, (XS-36); (S-38); (M-40);( L-42);(XL-44);(XXL-46);(OX-48);(1X-50) unstitched;customize stitch\r\nTop:- Foux Georgatte With Embriodery Work + Stone Sleeves :- Foux Georgatte With Emb. Work + Stone Inner :- Santoon (Attched) Length :- Max Up to 46” Size :- Max Up to 60” Bottom :- Santoon Lehenga :- ButterFly Net With Emb. Work + Stone Inner Attched Santoon Length :- Max Up to 48” Size :- Max Up to 40\" Flair :- 2.10 Mtr Type :- Ready To Wear Dupatta :- ButterFly Net With Emb. Work + Stone Wash :- First Time Dry Clean\r\nSuit Length = 43-44 inches.... If you want the length shorter, then please inform us soon after you place an order.', 1, '', '', '', 1),
+(24, 4, 'STELLACOUTURE Embroidered Anarkali net Salwar Kameez Gown for Women 7091', 9000, 8300, 20, '944722455_81h5qHavmGL._AC_UY445_.jpg', 'This Salwar kameez is Readymade. Select color and size.\r\nTop Fabric :Georgette || Bottom Fabric : SANTOON || Dupatta Fabric : Georgette & NET || Inner Fabric : Santoon\r\nwe are provide 2 inches margin in both side of this readymade salwar kameez. So that you can easily remove thread if its small on you. This is size in inches : XS-36 || S-38 || M-40 || L-42 || XL-44 || customize size (we stitch your dress as per your body measurement.) || Unstitch\r\nFull length of salwar kameez : 54 inches . If you want to any changes in length size you can contact us after place order.\r\nWash Care : Dry Clean Only', 'This Salwar kameez is Readymade. Select color and size.\r\nTop Fabric :Georgette || Bottom Fabric : SANTOON || Dupatta Fabric : Georgette & NET || Inner Fabric : Santoon\r\nwe are provide 2 inches margin in both side of this readymade salwar kameez. So that you can easily remove thread if its small on you. This is size in inches : XS-36 || S-38 || M-40 || L-42 || XL-44 || customize size (we stitch your dress as per your body measurement.) || Unstitch\r\nFull length of salwar kameez : 54 inches . If you want to any changes in length size you can contact us after place order.\r\nWash Care : Dry Clean Only', 0, '', '', '', 1),
+(25, 5, 'Dreamingbox Compact Shock Proof Binoculars for Kids - Festival Gifts', 1800, 1650, 20, '155846860_41B5hVUtFtL.jpg', 'Super Safety: Soft rubber surrounded eyepieces are included for eye protection so children don\'t hurt their eyes or face. There is extra coating surrounding the eyepieces provides better protection of the lens during falls.\r\nAdvanced Design: Non-slip scratch, the grip has been ergonomically patented designed to fit the hands of children. It is easy to focus, and they can adjust to adult eyes just as well as kid-sized eyes. The leaves of a tree 100 yards away came into sharp focus.\r\nShock Proof: Durable binoculars that can withstand drops and falls on floors due to rubber coating that absorbs shock. If accidentally dropped on the ground, the binoculars are protected from damage with shock proof rubber armor.\r\nCrystal Clear View: The FMC prism green coated optics system can control optical reflection to create crisp and colorful images. The product ensures the user can see the entire visual field for capturing objects easily with 7.11° viewing angle. Multi-layer broadband coating technology, make you see the scene more realistic.\r\nReal Binoculars for Kids: This product has a superb maginifcation of 8X with an amazing view. The binoculars can be adjusted to easily match the eye distance gap for each child. Great for bird watching, learning, hunting, theaters, boat rides, hiking, traveling and enjoying the wilderness!', 'Super Safety: Soft rubber surrounded eyepieces are included for eye protection so children don\'t hurt their eyes or face. There is extra coating surrounding the eyepieces provides better protection of the lens during falls.\r\nAdvanced Design: Non-slip scratch, the grip has been ergonomically patented designed to fit the hands of children. It is easy to focus, and they can adjust to adult eyes just as well as kid-sized eyes. The leaves of a tree 100 yards away came into sharp focus.\r\nShock Proof: Durable binoculars that can withstand drops and falls on floors due to rubber coating that absorbs shock. If accidentally dropped on the ground, the binoculars are protected from damage with shock proof rubber armor.\r\nCrystal Clear View: The FMC prism green coated optics system can control optical reflection to create crisp and colorful images. The product ensures the user can see the entire visual field for capturing objects easily with 7.11° viewing angle. Multi-layer broadband coating technology, make you see the scene more realistic.\r\nReal Binoculars for Kids: This product has a superb maginifcation of 8X with an amazing view. The binoculars can be adjusted to easily match the eye distance gap for each child. Great for bird watching, learning, hunting, theaters, boat rides, hiking, traveling and enjoying the wilderness!', 0, '', '', '', 1),
+(26, 5, 'Kid\'s Awesome Activity Wall Calendar 2021', 1200, 1199, 10, '196396530_images.jpg', 'The family favorite that inspired an equally awesome book, The Kid’s Awesome Activity Calendar sparks creativity and keeps kids’ minds engaged, all year long. Each seasonal, colorfully illustrated spread is jam-packed with interactive entertainment, including offbeat prompts to get the mental wheels turning, lively games, and cool crafts. Plant a verdant garden in May. In October', 'The family favorite that inspired an equally awesome book, The Kid’s Awesome Activity Calendar sparks creativity and keeps kids’ minds engaged, all year long. Each seasonal, colorfully illustrated spread is jam-packed with interactive entertainment, including offbeat prompts to get the mental wheels turning, lively games, and cool crafts. Plant a verdant garden in May. In October', 0, '', '', '', 1),
+(27, 5, 'Hurtle 3-Wheeled Scooter for Kids - Wheel LED Lights, Adjustable Lean-to-Steer Handlebar, and Foldable Seat', 4000, 3700, 10, '322462584_e1bcb7f87d38eb469b9cf9e4b2ef9662.jpg', 'MULTI-COLOR WHEEL LIGHTS: The Hurtle ScootKid 3-Wheel Kick Scooters for Kids feature colorful LED turning wheel lights that light up in a variety of flashing colors as you scoot, adding a fun twist to the ride! It also makes the scooter stand out\r\nSIT OR STAND DESIGN WITH FOOT REST: This scooter for toddlers is equipped w/ a unique 45lb capacity removable flip-out seat which kids can use while cruising along with the built-in foot pad. Can be detached when they feel more confident standing up\r\nADJUSTABLE HANDLEBAR: The lightweight and compact kids scooter features an adjustable handlebar w/ 4 height options — 25. 5/27. 5/31/34 inches, works w/ kids of all ages. Ideal for little ones ages 1 year old and up with a weight capacity of 132 lbs\r\nSMOOTH RIDE: The mini toddler trike 3 wheel scooter is equipped w/ anti-slip and wide deck that is large enough to fit both feet. Also has smooth 120mm/80mm gliding roller wheels that run smoothly even on surfaces that are uneven or bumpy', 'MULTI-COLOR WHEEL LIGHTS: The Hurtle ScootKid 3-Wheel Kick Scooters for Kids feature colorful LED turning wheel lights that light up in a variety of flashing colors as you scoot, adding a fun twist to the ride! It also makes the scooter stand out\r\nSIT OR STAND DESIGN WITH FOOT REST: This scooter for toddlers is equipped w/ a unique 45lb capacity removable flip-out seat which kids can use while cruising along with the built-in foot pad. Can be detached when they feel more confident standing up\r\nADJUSTABLE HANDLEBAR: The lightweight and compact kids scooter features an adjustable handlebar w/ 4 height options — 25. 5/27. 5/31/34 inches, works w/ kids of all ages. Ideal for little ones ages 1 year old and up with a weight capacity of 132 lbs\r\nSMOOTH RIDE: The mini toddler trike 3 wheel scooter is equipped w/ anti-slip and wide deck that is large enough to fit both feet. Also has smooth 120mm/80mm gliding roller wheels that run smoothly even on surfaces that are uneven or bumpy', 0, '', '', '', 0),
+(28, 5, 'Washable Makeup Girls Unicorn Toys - Real Make Up Set', 2500, 2150, 10, '535177799_81TnIKrRLGL._AC_SX425_.jpg', 'ENJOY MAKEUP PRETEND PLAY: Buy a set back as a gift for your sweet princess and teach her how to make up! The most special birthday gifts, Halloween gifts, Christmas gifts for girl aged 4 5 6 7. ?If the packaging is damaged, the cosmetics are broken, or you are not satisfied with our makeup toys, you can log in to your buyer account to find the contact seller to contact us, we could refund and exchange.', 'ENJOY MAKEUP PRETEND PLAY: Buy a set back as a gift for your sweet princess and teach her how to make up! The most special birthday gifts, Halloween gifts, Christmas gifts for girl aged 4 5 6 7. ?If the packaging is damaged, the cosmetics are broken, or you are not satisfied with our makeup toys, you can log in to your buyer account to find the contact seller to contact us, we could refund and exchange.', 1, '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -203,8 +251,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `mobile`, `added_on`) VALUES
-(1, 'Vishal Gupta', 'vishal', 'phpvishal@gmail.com', '1234567890', '2020-05-13 00:00:00'),
-(2, 'Amit', 'amit', 'amir@gmail.com', '1234567890', '2020-05-14 00:00:00');
+(3, 'Tanvir Ahmed', 'tanvir', 'tanvir@gmail.com', '01738372627', '2020-12-08 06:03:12'),
+(5, 'Muntasir', 'muntasir', 'muntasir@gmail.com', '01622792511', '2020-12-09 06:03:04'),
+(6, 'Utsho', 'utsho', 'utsho@gmail.com', '01788996633', '2020-12-09 06:05:05'),
+(7, 'Sifat', 'sifat', 'sifat@gmail.com', '01733665544', '2020-12-09 06:07:15'),
+(8, 'Orco', 'orco', 'orco@gmail.com', '01733665533', '2020-12-09 06:07:30'),
+(9, 'Nayem', 'nayem', 'nayem@gmail.com', '01733665533', '2020-12-09 06:07:53');
 
 -- --------------------------------------------------------
 
@@ -224,7 +276,14 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
-(16, 1, 4, '2020-05-13 08:54:24');
+(16, 1, 4, '2020-05-13 08:54:24'),
+(20, 4, 26, '2020-12-09 06:01:50'),
+(21, 5, 4, '2020-12-09 06:03:33'),
+(22, 5, 6, '2020-12-09 06:03:34'),
+(23, 6, 26, '2020-12-09 06:05:31'),
+(24, 9, 16, '2020-12-09 06:08:34'),
+(26, 3, 11, '2020-12-10 06:11:48'),
+(29, 3, 5, '2020-12-10 06:11:57');
 
 --
 -- Indexes for dumped tables
@@ -298,25 +357,25 @@ ALTER TABLE `admin_users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `order_status`
@@ -328,19 +387,19 @@ ALTER TABLE `order_status`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
