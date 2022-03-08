@@ -101,7 +101,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="copyright__inner">
-                                <p>Copyright©  <?php echo date('Y')?> Mohammad Tanvir Ahmed. All right reserved.</p>
+                                <p>Copyright©  <?php echo date('Y')?> Mohaiminul Islam. All right reserved.</p>
                             </div>
                         </div>
                     </div>

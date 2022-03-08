@@ -151,7 +151,7 @@ if($mypage=='product.php'){
                                         <a href="wishlist.php"><span class="htc__wishlist"><?php echo $wishlist_count?></span></a>
 										<?php } ?>
                                         &nbsp;
-                                        <a href="cart.php"><i class="icon-handbag icons"></i></a>
+                                        <a class="cart__icon" href="cart.php"><i class="icon-handbag icons"></i></a>
                                         <a href="cart.php"><span class="htc__qua"><?php echo $totalProduct?></span></a>
                                     </div>
                                 </div>

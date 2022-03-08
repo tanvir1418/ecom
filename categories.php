@@ -92,7 +92,7 @@ if($cat_id>0){
 										foreach($get_product as $list){
 										?>
 										<!-- Start Single Category -->
-										<div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
+										<div class="prod__height col-md-4 col-lg-3 col-sm-4 col-xs-12">
 											<div class="category">
 												<div class="ht__cat__thumb">
 													<a href="product.php?id=<?php echo $list['id']?>">

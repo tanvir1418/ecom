@@ -25,7 +25,10 @@ require('top.php');
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
                         <div class="map-contacts--2">
-                            <div id="googleMap"></div>
+                            <!-- <div id="googleMap"></div> -->
+                            <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.4560152344943!2d89.36995591500259!3d24.848270284059677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fc54e48a038d3b%3A0x580d27bfb557a530!2sSathmatha%2C%20Bogura!5e0!3m2!1sen!2sbd!4v1646140619078!5m2!1sen!2sbd"
+                        style="border:0; width: 100%; min-height: 500px;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
@@ -36,7 +39,7 @@ require('top.php');
                             </div>
                             <div class="address__details">
                                 <h2 class="ct__title">our address</h2>
-                                <p>666 5th Ave New York, NY, United </p>
+                                <p>Satmatha, Bogura </p>
                             </div>
                         </div>
                         <div class="address">
@@ -45,7 +48,7 @@ require('top.php');
                             </div>
                             <div class="address__details">
                                 <h2 class="ct__title">openning hour</h2>
-                                <p>666 5th Ave New York, NY, United </p>
+                                <p>Satmatha, Bogura </p>
                             </div>
                         </div>
 
@@ -55,7 +58,7 @@ require('top.php');
                             </div>
                             <div class="address__details">
                                 <h2 class="ct__title">Phone Number</h2>
-                                <p>123-6586-587456</p>
+                                <p>+8801738898989</p>
                             </div>
                         </div>
                     </div>      
