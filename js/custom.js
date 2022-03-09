@@ -101,11 +101,6 @@ function user_register() {
         }
         if (result == "insert") {
           window.location.href = "thank_registration.php";
-          // jQuery(".register_msg p").html("Thank you for registration");
-          // jQuery("#name").val("");
-          // jQuery("#email").val("");
-          // jQuery("#mobile").val("");
-          // jQuery("#password").val("");
         }
       },
     });
@@ -153,24 +148,24 @@ function manage_cart(pid, type) {
   } else {
     var qty = jQuery("#qty").val();
   }
-  if (qty >= 1) {
-    jQuery.ajax({
-      url: "manage_cart.php",
-      type: "post",
-      data: "pid=" + pid + "&qty=" + qty + "&type=" + type,
-      success: function (result) {
-        if (type == "update" || type == "remove") {
-          window.location.href = window.location.href;
-        }
+  // if ((type == "update" && qty >= 1) || type == "remove") {
+  jQuery.ajax({
+    url: "manage_cart.php",
+    type: "post",
+    data: "pid=" + pid + "&qty=" + qty + "&type=" + type,
+    success: function (result) {
+      if (type == "update" || type == "remove") {
+        window.location.href = window.location.href;
+      }
 
-        if (result == "not_avaliable") {
-          alert("Qty not available");
-        } else {
-          jQuery(".htc__qua").html(result);
-        }
-      },
-    });
-  }
+      if (result == "not_avaliable") {
+        alert("Qty not available");
+      } else {
+        jQuery(".htc__qua").html(result);
+      }
+    },
+  });
+  // }
 }
 
 function sort_product_drop(cat_id, site_path) {

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2022 at 07:20 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Dec 10, 2020 at 03:07 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -281,7 +281,9 @@ INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
 (21, 5, 4, '2020-12-09 06:03:33'),
 (22, 5, 6, '2020-12-09 06:03:34'),
 (23, 6, 26, '2020-12-09 06:05:31'),
-(24, 9, 16, '2020-12-09 06:08:34');
+(24, 9, 16, '2020-12-09 06:08:34'),
+(26, 3, 11, '2020-12-10 06:11:48'),
+(29, 3, 5, '2020-12-10 06:11:57');
 
 --
 -- Indexes for dumped tables
@@ -391,7 +393,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
