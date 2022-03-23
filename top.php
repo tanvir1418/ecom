@@ -44,12 +44,13 @@ if($mypage=='product.php'){
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Shoppy</title><!-- echo $meta_title -->
     <meta name="description" content="<?php echo $meta_desc?>">
-	<meta name="keywords" content="<?php echo $meta_keyword?>">
+    <meta name="keywords" content="<?php echo $meta_keyword?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Place favicon.ico in the root directory -->
@@ -64,27 +65,28 @@ if($mypage=='product.php'){
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/custom.css">
-	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
-	<style>
-	.htc__shopping__cart a span.htc__wishlist {
-		background: #c43b68;
-		border-radius: 100%;
-		color: #fff;
-		font-size: 9px;
-		height: 17px;
-		line-height: 19px;
-		position: absolute;
-		right: 18px;
-		text-align: center;
-		top: -4px;
-		width: 17px;
-	}
-	</style>
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <style>
+    .htc__shopping__cart a span.htc__wishlist {
+        background: #c43b68;
+        border-radius: 100%;
+        color: #fff;
+        font-size: 9px;
+        height: 17px;
+        line-height: 19px;
+        position: absolute;
+        right: 18px;
+        text-align: center;
+        top: -4px;
+        width: 17px;
+    }
+    </style>
 </head>
+
 <body>
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->  
+    <![endif]-->
 
     <!-- Body main wrapper start -->
     <div class="wrapper">
@@ -93,9 +95,9 @@ if($mypage=='product.php'){
                 <div class="container">
                     <div class="row">
                         <div class="menumenu__container clearfix">
-                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5"> 
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5">
                                 <div class="logo">
-                                     <a href="index.php"><img src="images/logo/4.png" alt="logo images"></a>
+                                    <a href="index.php"><img src="images/logo/4.png" alt="logo images"></a>
                                 </div>
                             </div>
                             <div class="col-md-5 col-lg-5 col-sm-5 col-xs-3">
@@ -105,8 +107,10 @@ if($mypage=='product.php'){
                                         <?php
 										foreach($cat_arr as $list){
 											?>
-											<li><a href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a></li>
-											<?php
+                                        <li><a
+                                                href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a>
+                                        </li>
+                                        <?php
 										}
 										?>
                                         <li><a href="contact.php">contact</a></li>
@@ -120,36 +124,39 @@ if($mypage=='product.php'){
                                             <?php
 											foreach($cat_arr as $list){
 												?>
-												<li><a href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a></li>
-												<?php
+                                            <li><a
+                                                    href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a>
+                                            </li>
+                                            <?php
 											}
 											?>
                                             <li><a href="contact.php">contact</a></li>
                                         </ul>
                                     </nav>
-                                </div>  
+                                </div>
                             </div>
                             <div class="col-md-5 col-lg-5 col-sm-4 col-xs-4">
                                 <div class="header__right">
-									<div class="header__search search search__open">
+                                    <div class="header__search search search__open">
                                         <a href="#"><i class="icon-magnifier icons"></i></a>
                                     </div>
                                     <div class="header__account">
                                         <?php if(isset($_SESSION['USER_LOGIN'])){
-                                            echo '<a href="logout.php">Logout</a> <a href="my_order.php">My Order</a> <a href="index.php"><i class="icon-user icons"></i>'.$_SESSION['USER_NAME'];
+                                            echo '<a href="logout.php">Logout</a> <a href="my_order.php">My Order</a> <a href="user_profile.php"><i class="icon-user icons"></i>'.$_SESSION['USER_NAME'];
                                         }else{
 											echo '<a href="login.php">Login/Register</a>';
 										}
 										?>
-										
+
                                     </div>
                                     <div class="htc__shopping__cart">
-										<?php
+                                        <?php
 										if(isset($_SESSION['USER_ID'])){
 										?>
-										<a href="wishlist.php"><i class="icon-heart icons"></i></a>
-                                        <a href="wishlist.php"><span class="htc__wishlist"><?php echo $wishlist_count?></span></a>
-										<?php } ?>
+                                        <a href="wishlist.php"><i class="icon-heart icons"></i></a>
+                                        <a href="wishlist.php"><span
+                                                class="htc__wishlist"><?php echo $wishlist_count?></span></a>
+                                        <?php } ?>
                                         &nbsp;
                                         <a class="cart__icon" href="cart.php"><i class="icon-handbag icons"></i></a>
                                         <a href="cart.php"><span class="htc__qua"><?php echo $totalProduct?></span></a>
@@ -162,8 +169,8 @@ if($mypage=='product.php'){
                 </div>
             </div>
         </header>
-		<div class="body__overlay"></div>
-		<div class="offset__wrapper">
+        <div class="body__overlay"></div>
+        <div class="offset__wrapper">
             <div class="search__area">
                 <div class="container">
                     <div class="row">

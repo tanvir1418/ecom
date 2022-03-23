@@ -364,7 +364,8 @@
   flex-flow: column;
 }
 .product__action li a {
-  background: #fefefe none repeat scroll 0 0;
+  /* background: #fefefe none repeat scroll 0 0; */
+  background: #e7a5bb none repeat scroll 0 0;
   display: inline-block;
   height: 50px;
   line-height: 60px;
@@ -3526,4 +3527,14 @@ ul.htc__instagram__posts.owl-carousel li img {
 }
 .slick-initialized .slick-slide {
   outline: none;
+}
+
+.user__profile__title {
+  font-size: 20px;
+  line-height: 56px;
+  width: 130px;
+}
+
+.user__profile__title + input {
+  width: 300px !important;
 }
