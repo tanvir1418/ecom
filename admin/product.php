@@ -23,54 +23,71 @@ if(isset($_GET['type']) && $_GET['type']!=''){
 }
 
 $sql="select product.*,categories.categories from product,categories where product.categories_id=categories.id order by product.id desc";
+
+if(isset($_GET['catid']) && $_GET['catid']!=''){
+	$cat_id=get_safe_value($con,$_GET['catid']);
+	$sql="select product.*,categories.categories from product, categories where categories.id={$cat_id} and product.categories_id={$cat_id}";
+}
+
 $res=mysqli_query($con,$sql);
+
+$cat_sql = "SELECT * FROM categories";
+$cat_res=mysqli_query($con, $cat_sql);
+
 ?>
 <div class="content pb-0">
-	<div class="orders">
-	   <div class="row">
-		  <div class="col-xl-12">
-			 <div class="card">
-				<div class="card-body">
-				   <h4 class="box-title">Products </h4>
-				   <h4 class="box-link"><a href="manage_product.php">Add Product</a> </h4>
-				</div>
-				<div class="card-body--">
-				   <div class="table-stats order-table ov-h">
-					  <table class="table ">
-						 <thead>
-							<tr>
-							   <th class="serial">#</th>
-							   <th width="2%">ID</th>
-							   <th width="10%">Categories</th>
-							   <th width="30%">Name</th>
-							   <th width="10%">Image</th>
-							   <th width="10%">MRP</th>
-							   <th width="7%">Price</th>
-							   <th width="7%">Qty</th>
-							   <th width="26%"></th>
-							</tr>
-						 </thead>
-						 <tbody>
-							<?php 
+    <div class="orders">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="box-title">Products </h4>
+                        <h4 class="box-link"><a href="manage_product.php">Add Product</a> </h4>
+                    </div>
+                    <div class="card-body">
+                        <?php 
+							while($cat_row=mysqli_fetch_assoc($cat_res)){?>
+                        <span class='badge badge-category'><a
+                                href='?catid=<?php echo $cat_row['id']?>'><?php echo $cat_row['categories'] ?></a></span>
+                        <?php } ?>
+                    </div>
+                    <div class="card-body--">
+                        <div class="table-stats order-table ov-h">
+                            <table class="table ">
+                                <thead>
+                                    <tr>
+                                        <th class="serial">#</th>
+                                        <th width="2%">ID</th>
+                                        <th width="10%">Categories</th>
+                                        <th width="30%">Name</th>
+                                        <th width="10%">Image</th>
+                                        <th width="10%">MRP</th>
+                                        <th width="7%">Price</th>
+                                        <th width="7%">Qty</th>
+                                        <th width="26%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
 							$i=1;
 							while($row=mysqli_fetch_assoc($res)){?>
-							<tr>
-							   <td class="serial"><?php echo $i?></td>
-							   <td><?php echo $row['id']?></td>
-							   <td><?php echo $row['categories']?></td>
-							   <td><?php echo $row['name']?></td>
-							   <td><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"/></td>
-							   <td>Tk <?php echo $row['mrp']?></td>
-							   <td>Tk <?php echo $row['price']?></td>
-							   <td><?php echo $row['qty']?> <br>
-							   <?php 
+                                    <tr>
+                                        <td class="serial"><?php echo $i?></td>
+                                        <td><?php echo $row['id']?></td>
+                                        <td><?php echo $row['categories']?></td>
+                                        <td><?php echo $row['name']?></td>
+                                        <td><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>" /></td>
+                                        <td>Tk <?php echo $row['mrp']?></td>
+                                        <td>Tk <?php echo $row['price']?></td>
+                                        <td><?php echo $row['qty']?> <br>
+                                            <?php 
 									 $productSoldQtyByProductId = productSoldQtyByProductId($con,$row['id']);
 									 $pending_qty = $row['qty'] -  $productSoldQtyByProductId;
 							   ?>
-							   Pending: <?php echo $pending_qty ?>
-							   </td>
-							   <td>
-								<?php
+                                            Pending: <?php echo $pending_qty ?>
+                                        </td>
+                                        <td>
+                                            <?php
 								if($row['status']==1){
 									echo "<span class='badge badge-complete'><a href='?type=status&operation=deactive&id=".$row['id']."'>Active</a></span>&nbsp;";
 								}else{
@@ -81,17 +98,17 @@ $res=mysqli_query($con,$sql);
 								echo "<span class='badge badge-delete'><a href='?type=delete&id=".$row['id']."'>Delete</a></span>";
 								++$i;
 								?>
-							   </td>
-							</tr>
-							<?php } ?>
-						 </tbody>
-					  </table>
-				   </div>
-				</div>
-			 </div>
-		  </div>
-	   </div>
-	</div>
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <?php
 require('footer.inc.php');

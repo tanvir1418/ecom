@@ -3440,3 +3440,33 @@ footer.site-footer .footer-inner a {
   color: white;
   background-color: #5b5b60;
 }
+
+.badge-category {
+  background: #000;
+  color: white;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+.user-search-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-search-card form {
+  padding-left: 10px;
+  border: 1px solid #868e96;
+  border-radius: 4px;
+}
+
+.user-search-card form button {
+  border-radius: 0px;
+  font-size: 14px;
+}
+
+.user-search-card .user-search {
+  width: 250px;
+  outline: none;
+  border: none;
+  font-size: 14px;
+}
