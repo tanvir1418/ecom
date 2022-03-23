@@ -142,7 +142,7 @@ if($mypage=='product.php'){
                                     </div>
                                     <div class="header__account">
                                         <?php if(isset($_SESSION['USER_LOGIN'])){
-                                            echo '<a href="logout.php">Logout</a> <a href="my_order.php">My Order</a> <a href="user_profile.php"><i class="icon-user icons"></i>'.$_SESSION['USER_NAME'];
+                                            echo '<a href="logout.php">Logout</a> <a href="my_order.php">My Order</a> <a href="user_profile.php"><i class="icon-user icons"></i>Profile';
                                         }else{
 											echo '<a href="login.php">Login/Register</a>';
 										}
