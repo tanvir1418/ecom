@@ -71,12 +71,13 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
             </div>
             <div class="top-right">
                 <div class="header-menu">
-                    <div class="user-area dropdown float-right">
+                    <div class="user-area dropdown float-right"
+                        style="display: flex; align-items: center; justify-content: center;">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">Welcome Admin</a>
-                        <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="logout.php"><i class="fa fa-power-off"></i>Logout</a>
-                        </div>
+                        <a class="nav-link" href="logout.php" style="padding: 0px 1.5rem;">
+                            <span style="border-radius: 4px; background: lightgray; padding: 5px 15px;"><i
+                                    class="fa fa-power-off"></i> Logout</a></span>
                     </div>
                 </div>
             </div>
