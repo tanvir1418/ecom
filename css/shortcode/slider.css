@@ -23,8 +23,7 @@
 .slider__fixed--height {
   align-items: center;
   display: flex;
-  height: 600px;
-  /* height: 800px; */
+  height: 800px;
 }
 .slider--one .slide {
   align-items: center;
